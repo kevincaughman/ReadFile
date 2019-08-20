@@ -1,0 +1,14 @@
+{
+  "name": "root-i-readfile",
+  "version": "1.0.0",
+  "description": "A node application that will read a txt file and export the data in a specific format back to the console.",
+  "main": "readfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "moment": "^2.24.0"
+  }
+}
