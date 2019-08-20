@@ -1,9 +1,7 @@
 class Driver {
   constructor(attrs) {
     this.Name = '';
-    this.TotalDriveTime = 0;
-    this.TotalMiles = 0;
-    this.AvgMPH = 0;
+    this.Trips = [];
 
     if (attrs) {
       Object.assign(this, attrs);
@@ -12,6 +10,20 @@ class Driver {
 
   clone() {
     return new Driver(clone(this));
+  }
+
+  totalMilesDriven() {
+    const addMiles = (accumulator, trip) => accumulator + trip.Miles;
+    return this.Trips.reduce(addMiles, 0);
+  }
+
+  totalTimeDriven() {
+    const addDuration = (accumulator, trip) => accumulator + trip.DriveTime;
+    return this.Trips.reduce(addDuration, 0);
+  }
+
+  avgMPH() {
+    return Math.round(60 / (this.totalTimeDriven() / this.totalMilesDriven()));
   }
 }
 
