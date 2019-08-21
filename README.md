@@ -5,16 +5,25 @@
 
 To run the app, follow these steps.
 
-1. Ensure that the latest stable version of [NodeJS](http://nodejs.org/) and Python v2.7^ are installed. We recommend the latest LTS version or greater (v6.9.1+).
+1. Ensure that the latest stable version of [NodeJS](http://nodejs.org/). We recommend the latest LTS version or greater (v6.9.1+).
 2. From the project folder, execute the following command:
  ```
  npm install
  ```
-3. From the project folder, execute the following command:
+3. From the project folder, execute the following command to run the sample data file provided for you:
  ```
  node src/readfile.js driver.txt
  ```
- If you would like to suplply your own file please use the path to your file along with the filename and ext:
+ If you would like to supply your own file please use the path to your file along with the filename and ext:
  ```
  node src/readfile.js /Users/username/Documents/driver.txt
+ ```
+ 
+## Running Tests
+
+To run the app tests, follow these steps.
+
+1. From the project folder, execute the following command:
+ ```
+ npm test
  ```
