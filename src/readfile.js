@@ -1,9 +1,8 @@
 const fs = require('fs');
 const readline = require('readline');
-var util = require('./controllers/utilities');
+var factory = require('./controllers/factory');
 var DataStore = require('./shared/data_store');
-const DRIVER = 'Driver';
-const TRIP = 'Trip';
+var commands = require('./shared/commands');
 
 async function processLineByLine() {
   const filename = process.argv[2];
@@ -15,18 +14,18 @@ async function processLineByLine() {
   });
 
   rl.on('line', (line) => {
-    if (line.includes(DRIVER)) {
-      const driver = util.CreateDriver(line, DRIVER);
+    if (line.includes(commands.DRIVER)) {
+      const driver = factory.CreateDriver(line, commands.DRIVER);
       store.addDriver(driver);
     }
-    else if (line.includes(TRIP)) {
-      const trip = util.CreateTrip(line, TRIP);
+    else if (line.includes(commands.TRIP)) {
+      const trip = factory.CreateTrip(line, commands.TRIP);
       store.addTrip(trip);
     }
   });
 
   rl.on('close', (close) => {
-    const report = util.CreateReport(store);
+    const report = factory.CreateReport(store);
     console.log(report);
     return report;
   });

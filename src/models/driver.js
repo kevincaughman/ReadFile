@@ -18,7 +18,7 @@ class Driver {
   }
 
   totalTimeDriven() {
-    const addDuration = (accumulator, trip) => accumulator + trip.DriveTime;
+    const addDuration = (accumulator, trip) => accumulator + trip.TotalDriveTime;
     return this.Trips.reduce(addDuration, 0);
   }
 

@@ -1,8 +1,6 @@
-
 class DataStore {
   constructor(attrs) {
     this.Drivers = [];
-    this.Trips = [];
   }
 
   addDriver(driver) {
@@ -10,7 +8,7 @@ class DataStore {
   }
 
   addTrip(trip) {
-    if (!trip.isInSpeedRange) {
+    if (!trip.isInSpeedRange()) {
       return;
     }
 

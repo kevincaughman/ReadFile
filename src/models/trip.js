@@ -4,7 +4,9 @@ const UPPER_SPEED_LIMIT = 100;
 class Trip {
   constructor(attrs) {
     this.DriverName= '';
-    this.DriveTime = 0;
+    this.StartTime = '';
+    this.EndTime = '';
+    this.TotalDriveTime = 0;
     this.Miles = 0;
     this.AvgMPH = 0;
 
@@ -18,11 +20,11 @@ class Trip {
   }
 
   speed () {
-    return Math.round(60 / (this.DriveTime / this.Miles));
+    return Math.round(60 / (this.TotalDriveTime / this.Miles));
   }
 
   isInSpeedRange () {
-    return (this.speed >= LOWER_SPEED_LIMIT && this.speed <= UPPER_SPEED_LIMIT);
+    return (this.speed() >= LOWER_SPEED_LIMIT && this.speed() <= UPPER_SPEED_LIMIT);
   }
 }
 
