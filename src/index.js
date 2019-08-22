@@ -4,6 +4,11 @@ var factory = require('./controllers/factory');
 var DataStore = require('./shared/data_store');
 var commands = require('./shared/commands');
 
+if (process.argv.length < 3) {
+  console.log('A filename with an extension is required: node ' + process.argv[1] + ' FILENAME.txt');
+  process.exit(1);
+}
+
 async function processLineByLine() {
   const filename = process.argv[2];
   const store = new DataStore();
